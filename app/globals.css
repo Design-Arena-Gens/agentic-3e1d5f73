@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply focus:outline-none focus:ring-4 focus:ring-indigo-400 focus:ring-opacity-50;
+  }
+
+  body {
+    @apply text-gray-900;
+  }
+
+  button {
+    @apply cursor-pointer transition-all duration-200;
+  }
+
+  button:active {
+    @apply scale-95;
+  }
+}
+
+@layer utilities {
+  .accessible-card {
+    @apply bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow;
+  }
+
+  .icon-button {
+    @apply p-4 rounded-full hover:bg-gray-100 transition-colors flex items-center justify-center;
+  }
+
+  .dyslexic-text {
+    font-family: 'OpenDyslexic', 'Comic Sans MS', sans-serif;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .accessible-card {
+    @apply border-4 border-gray-900;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
